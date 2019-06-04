@@ -1,0 +1,30 @@
+version: '3'
+services:
+  apacheconatiner:
+    build: ./apache/.
+    depends_on:
+      - mysqlcontainer
+    image: "hariharankrishnamurthi/mrbsapache:2.0"
+    ports:
+      - "8080:80"
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+  mysqlcontainer:
+    build: ./mysql/.
+    image: "hariharankrishnamurthi/mrbsmysql:2.0"
+    ports:
+      - "3306:3306"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - backup:/var/lib/mysql
+      
+networks:
+  default:
+
+volumes:
+  backup:
