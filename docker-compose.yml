@@ -4,7 +4,7 @@ services:
     build: ./apache/.
     depends_on:
       - mysqlcontainer
-    image: "hariharankrishnamurthi/mrbsapache:2.0"
+    image: "hariharankrishnamurthi/mrbsapache:3.0"
     ports:
       - "8080:80"
     deploy:
