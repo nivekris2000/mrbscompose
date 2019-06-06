@@ -6,7 +6,7 @@ services:
       - mysqlcontainer
     image: "hariharankrishnamurthi/mrbsapache:3.0"
     ports:
-      - "8080:80"
+      - "80:80"
     deploy:
       replicas: 2
       restart_policy:
